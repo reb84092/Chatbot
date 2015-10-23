@@ -19,6 +19,7 @@ public class Chatbot
 	public Chatbot(String userName)
 	{
 		this.userName = userName;
+		this.content = "Motivational Sign!"
 	}
 	
 	private void buildMemesList()
