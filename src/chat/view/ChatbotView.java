@@ -10,4 +10,16 @@ public class ChatbotView
 		
 		return returnedText;
 	}
+
+	public String collectUserText1111(String string)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String collectUserText111(String string)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

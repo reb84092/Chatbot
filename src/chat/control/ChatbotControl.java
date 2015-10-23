@@ -1,21 +1,23 @@
 package chat.control;
 
-/**
- * Starts the Chatbot Program.
- * @author rbar3155
- * @version 1.0 10/21/15
- */
+import chat.model.Chatbot;
+import chat.view.ChatView;
+
 public class ChatbotControl
 {
 	
-	public static void main (String [] args)
+	private Chatbot simpleBot;
+	private ChatView display;
+	
+	public ChatbotControl()
 	{
-		ChatbotControl myChatController = new ChatbotControl();
-		myChatController.start();
+		display = new ChatView();
+		String userName = display.collectUserTest("What is your name?");
+		simpleBot = new Chatbot(userName);
 	}
 	
-	private void start()
+	public void start()
 	{
-		
+		display.displayText("Hello" + simpleBot.getUserName());
 	}
 }
