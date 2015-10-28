@@ -3,6 +3,8 @@ package chat.control;
 import chat.model.Chatbot;
 import chat.view.ChatView;
 
+/**Controller for the Chatbot project.
+ */
 public class ChatbotControl
 {
 	
@@ -12,12 +14,31 @@ public class ChatbotControl
 	public ChatbotControl()
 	{
 		display = new ChatView();
-		String userName = display.collectUserTest("What is your name?");
+		String userName = display.collectUserText("What is your name?");
 		simpleBot = new Chatbot(userName);
 	}
 	
 	public void start()
 	{
-		display.displayText("Hello" + simpleBot.getUserName());
+		{
+			display.displayText("Hello" + simpleBot.getUserName());
+			chat();
+		}
 	}
+	
+	private void chat()
+	{
+		String conversation = display.collectUserText("What would you like to talk about today?");
+		while(simpleBot.lengthChecker(conversation))
+		{
+			if(simpleBot.contentChecker(conversation))
+			{
+				display.displayText("wow, I had no idea you are interested in ");
+			}
+			conversation = display.collectUserText(conversation);
+		}	
+	}
+	
+	private void shutDown(){
+}
 }
