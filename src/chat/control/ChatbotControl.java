@@ -33,7 +33,7 @@ public class ChatbotControl
 		{
 			if(simpleBot.contentChecker(conversation))
 			{
-				display.displayText("wow, I had no idea you are interested in " + simpleBot.getContent());
+				display.displayText("Wow, I had no idea you are interested in " + simpleBot.getContent());
 			}
 			else if(simpleBot.contentChecker(conversation))
 			{
