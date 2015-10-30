@@ -2,7 +2,7 @@ package chat.control;
 
 import chat.model.Chatbot;
 import chat.view.ChatView;
-
+public static void main(String [] args)
 /**Controller for the Chatbot project.
  */
 public class ChatbotControl
@@ -33,8 +33,13 @@ public class ChatbotControl
 		{
 			if(simpleBot.contentChecker(conversation))
 			{
-				display.displayText("wow, I had no idea you are interested in ");
+				display.displayText("wow, I had no idea you are interested in " + simpleBot.getContent());
 			}
+			else if(simpleBot.contentChecker(conversation))
+			{
+				display.displayText("what a lame meme.");
+			}
+
 			conversation = display.collectUserText(conversation);
 		}	
 	}
