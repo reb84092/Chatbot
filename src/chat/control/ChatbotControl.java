@@ -37,7 +37,7 @@ public class ChatbotControl
 			}
 			else if(simpleBot.contentChecker(conversation))
 			{
-				display.displayText("what a lame meme.");
+				display.displayText("What a lame meme :(");
 			}
 
 			conversation = display.collectUserText(conversation);
