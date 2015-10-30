@@ -103,4 +103,24 @@ public class Chatbot
 	 *@param currentInput The supplied String to be checked.
 	 *@return Whether the String is contained in  ArrayList.
 	 */
+	public boolean memeChecker(String currentInput)
+	{
+		boolean hasMeme = false;
+		for(String meme : memesList)
+		{
+			if(currentInput.toLowerCase().contains(meme.toLowerCase()))
+			{
+				hasMeme = true;
+			}
+		}
+		return hasMeme;
+	}
+	public boolean quitmemeChecker(String currentInput)
+	{
+		boolean okToQuit = false;
+		if(currentInput.equalsIgnoreCase("quit"))
+		{
+			okToQuit=true;
+		}
+	}
 }
