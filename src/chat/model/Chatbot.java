@@ -115,12 +115,5 @@ public class Chatbot
 		}
 		return hasMeme;
 	}
-	public boolean quitmemeChecker(String currentInput)
-	{
-		boolean okToQuit = false;
-		if(currentInput.equalsIgnoreCase("quit"))
-		{
-			okToQuit=true;
-		}
-	}
+	
 }
