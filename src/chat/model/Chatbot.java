@@ -24,9 +24,10 @@ public class Chatbot
 		this.content = "";
 		
 		buildMemesList();
-		buildPoliticalTopicsList();
+		buildPoliticalTopicList();
 	}
 	
+
 	private void buildMemesList()
 	{
 		this.memesList.add("cute animals");
@@ -41,8 +42,20 @@ public class Chatbot
 		this.memesList.add("troll face");
 	}
 	
-	private void buildPoliticalTopicsList()
+	private void buildPoliticalTopicList()
 	{
+		this.politicalTopicList.add("2016 election");
+		this.politicalTopicList.add("Obamacare");
+		this.politicalTopicList.add("Syrian refugee crisis");
+		this.politicalTopicList.add("Planned parenthood");
+		this.politicalTopicList.add("Donald Trump");
+		this.politicalTopicList.add("Bernie Sanders");
+		this.politicalTopicList.add("Iran deal");
+		this.politicalTopicList.add("Taxes");
+		this.politicalTopicList.add("Gun control");
+		this.politicalTopicList.add("Clinton emails");
+		this.politicalTopicList.add("Isis");
+		this.politicalTopicList.add("Global warming");
 		
 	}
 	
@@ -97,6 +110,11 @@ public class Chatbot
 		return memesList;
 	}
 	
+	public ArrayList<String> getPoliticalTopicList()
+	{
+		return politicalTopicList;
+	}
+	
 	/**
 	 *Checks if supplied String matches ANY of the topics in the politicalTopicList. Returns
 	 *true if it does find a match and false if it does not match.
@@ -115,5 +133,12 @@ public class Chatbot
 		}
 		return hasMeme;
 	}
-	
+	/**
+	 * Updates the content area for this Chatbot instance.
+	 * @param content The updated value for the content area.
+	 */
+	public void setContent(String content)
+	{
+		this.content = content;
+	}
 }

@@ -1,4 +1,4 @@
-package chat.control;
+package chat.controller;
 
 import chat.model.Chatbot;
 import chat.view.ChatView;
@@ -6,13 +6,13 @@ import chat.view.ChatView;
 /**
  * Controller for the Chatbot project.
  */
-public class ChatbotControl
+public class ChatController
 {
 
 	private Chatbot simpleBot;
 	private ChatView display;
 
-	public ChatbotControl()
+	public ChatController()
 	{
 		display = new ChatView();
 		String userName = display.collectUserText("What is your name?");

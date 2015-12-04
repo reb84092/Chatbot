@@ -4,12 +4,11 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout; //For layout
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseListener;
+
 import java.awt.event.*;
 import java.awt.Color;
-import chat.control.ChatbotControl;
+
+import chat.controller.ChatController;
 
 /**
  * @author rbar3155
@@ -18,12 +17,13 @@ import chat.control.ChatbotControl;
  */
 public class ChatPanel extends JPanel
 {
-	private ChatbotControl baseController;
+	private ChatController baseController;
+	private SpringLayout baseLayout;
 	private JButton chatButton;
 	private JTextField chatTextField;
-	private SpringLayout baseLayout;
+	
 
-	public ChatPanel(ChatbotControl baseController)
+	public ChatPanel(ChatController baseController)
 	{
 		this.baseController = baseController;
 
@@ -35,10 +35,7 @@ public class ChatPanel extends JPanel
 		setupLayout();
 		setupListeners();
 	}
-	
-	/**
-	 * Helper method to load all Chatbot components into the panel
-	 */
+
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
@@ -55,6 +52,7 @@ public class ChatPanel extends JPanel
 	}
 	
 	private void setupListeners()
+
 	{
 		chatButton.addActionListener(new ActionListener()
 		{
@@ -65,4 +63,6 @@ public class ChatPanel extends JPanel
 		});
 		
 	}
+
+
 }
