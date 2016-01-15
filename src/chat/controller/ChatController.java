@@ -1,18 +1,19 @@
-package chat.control;
+package chat.controller;
 
 import chat.model.Chatbot;
+import chat.view.ChatFrame;
 import chat.view.ChatView;
 
 /**
  * Controller for the Chatbot project.
  */
-public class ChatbotControl
+public class ChatController
 {
 
 	private Chatbot simpleBot;
 	private ChatView display;
 
-	public ChatbotControl()
+	public ChatController()
 	{
 		display = new ChatView();
 		String userName = display.collectUserText("What is your name?");
@@ -42,8 +43,27 @@ public class ChatbotControl
 			conversation = display.collectUserText(conversation);
 		}
 	}
+	
+	public Chatbot getChatbot()
+	{
+		return simpleBot;
+	}
 
+
+	
 	private void shutDown()
 	{
+	}
+
+	public Object getChatView()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ChatFrame getBaseFrame()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
