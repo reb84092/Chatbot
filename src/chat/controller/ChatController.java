@@ -1,6 +1,7 @@
 package chat.controller;
 
 import chat.model.Chatbot;
+import chat.view.ChatFrame;
 import chat.view.ChatView;
 
 /**
@@ -42,8 +43,27 @@ public class ChatController
 			conversation = display.collectUserText(conversation);
 		}
 	}
+	
+	public Chatbot getChatbot()
+	{
+		return simpleBot;
+	}
 
+
+	
 	private void shutDown()
 	{
+	}
+
+	public Object getChatView()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ChatFrame getBaseFrame()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

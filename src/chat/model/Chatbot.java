@@ -59,6 +59,18 @@ public class Chatbot
 		
 	}
 	
+	public boolean keyboardMashChecker()
+	{
+		boolean hasKeyboardMash = true;
+		
+	
+		{
+			hasKeyboardMash = false;
+		}
+		
+		return hasKeyboardMash;
+	}
+	
 	/** Checks the length of the supplied string.*/
 	public boolean lengthChecker(String currentInput)
 	{
@@ -132,6 +144,13 @@ public class Chatbot
 			}
 		}
 		return hasMeme;
+	}
+	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean hasKeyboardMash = true;
+		return hasKeyboardMash;
+		
 	}
 	/**
 	 * Updates the content area for this Chatbot instance.

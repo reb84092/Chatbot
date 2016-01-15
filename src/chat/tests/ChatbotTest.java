@@ -91,8 +91,8 @@ public class ChatbotTest
 	@Test
 	public void testQuitChecker()
 	{
-		assertFalse("False positive", sampleBot.quitChecker("exit"));
-		assertTrue("False negative", sampleBot.quitChecker("quit"));
+		assertFalse("False positive", sampleBot.contentChecker("exit"));
+		assertTrue("False negative", sampleBot.contentChecker("quit"));
 	}
 	
 	@Test
