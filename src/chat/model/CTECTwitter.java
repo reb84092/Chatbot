@@ -13,13 +13,14 @@ public class CTECTwitter {
 	private ArrayList<Status> statusList;
 	private ArrayList<String> wordList;
 	private Twitter chatbotTwitter;
+	private ArrayList<String> tweetTexts;
 	private ChatController baseController;
 
 	public CTECTwitter(ChatController baseController) {
 		this.baseController = baseController;
 		statusList = new ArrayList<Status>();
 		chatbotTwitter = TwitterFactory.getSingleton();
-
+		tweetTexts = new ArrayList<String>();
 	}
 
 	public void sendTweet(String tweet) {
