@@ -22,7 +22,7 @@ public class ChatPanel extends JPanel
 	private SpringLayout baseLayout;
 	private JButton chatButton;
 	private JTextField chatTextField;
-	
+	private JButton tweetButton;
 
 	public ChatPanel(ChatController baseController)
 	{
@@ -63,6 +63,13 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				baseController.sendTweet("no text to send");
+			}
+		});
 	}
 
 	public JComponent getTextField()

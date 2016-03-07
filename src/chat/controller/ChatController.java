@@ -3,21 +3,25 @@ package chat.controller;
 import chat.model.Chatbot;
 import chat.view.ChatFrame;
 import chat.view.ChatView;
+import chat.model.CTECTwitter;
 
 /**
  * Controller for the Chatbot project.
  */
 public class ChatController
 {
-
+	private CTECTwitter chatTwitter;
 	private Chatbot simpleBot;
 	private ChatView display;
+	private ChatFrame baseFrame;
 
 	public ChatController()
 	{
 		display = new ChatView();
 		String userName = display.collectUserText("What is your name?");
 		simpleBot = new Chatbot(userName);
+		chatTwitter = new CTECTwitter(this);
+		baseFrame = new ChatFrame(this);
 	}
 
 	public void start()
@@ -65,5 +69,15 @@ public class ChatController
 	{
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void sendTweet(String tweetText)
+	{
+		chatTwitter.sendTweet(tweetText);
+	}
+	
+	public void handleErrors(String errorMessage)
+	{
+		display.displayText(errorMessage);
 	}
 }

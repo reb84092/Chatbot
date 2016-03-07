@@ -1,7 +1,7 @@
 package chat.model;
 
 import twitter4j.*;
-
+import chat.controller.ChatController;
 import java.util.ArrayList;
 
 /**
@@ -13,18 +13,25 @@ public class CTECTwitter {
 	private ArrayList<Status> statusList;
 	private ArrayList<String> wordList;
 	private Twitter chatbotTwitter;
+	private ChatController baseController;
 
-	public CTECTwitter() {
+	public CTECTwitter(ChatController baseController) {
+		this.baseController = baseController;
 		statusList = new ArrayList<Status>();
+		chatbotTwitter = TwitterFactory.getSingleton();
+
 	}
 
-	public void sendTweet(String tweet) 
-	{
-		try {
-			chatbotTwitter.updateStatus("I just tweeted from my Java Chatbot program! #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen!");
-		} catch (TwitterException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public void sendTweet(String tweet) {
+		try 
+		{
+			chatbotTwitter
+					.updateStatus("I just tweeted from my Java Chatbot program! #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen!");
+		} 
+		catch (TwitterException error) 
+		{
+
+			baseController.handleErrors(error.getErrorMessage());
 		}
 
 	}
