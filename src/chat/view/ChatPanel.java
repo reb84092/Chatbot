@@ -30,6 +30,7 @@ public class ChatPanel extends JPanel
 
 		baseLayout = new SpringLayout();
 		chatButton = new JButton("Please do not click the button");
+		tweetButton = new JButton("Tweet button");
 		chatTextField = new JTextField("Words can be typed here");
 		
 		setupPanel();
@@ -42,6 +43,7 @@ public class ChatPanel extends JPanel
 		this.setLayout(baseLayout);
 		this.add(chatButton);
 		this.add(chatTextField);
+		this.add(tweetButton);
 	}
 	
 	private void setupLayout()
