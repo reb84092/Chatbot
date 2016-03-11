@@ -30,6 +30,12 @@ public class ChatController
 		chat();
 	}
 
+	public String analyze(String userName)
+	{
+		String userAnalysis = "The Twitter user " + userName + "has....";
+		
+		return userAnalysis;
+	}
 	private void chat()
 	{
 		String conversation = display.collectUserText("What would you like to talk about today?");

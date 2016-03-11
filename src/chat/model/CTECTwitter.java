@@ -3,6 +3,7 @@ package chat.model;
 import twitter4j.*;
 import chat.controller.ChatController;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @RachelBarnes
@@ -22,7 +23,44 @@ public class CTECTwitter {
 		chatbotTwitter = TwitterFactory.getSingleton();
 		tweetTexts = new ArrayList<String>();
 	}
-
+	public void loadTweets(String twitterHandle) throws TwitterException
+	{
+		Paging statusPage = new Paging(1, 200);
+		int page = 1;
+		while (page <= 10)
+		{
+			statusPage.setPage(page);
+			statusList.addAll(chatbotTwitter.getUserTimeline(twitterHandle, statusPage));
+			page++;
+		}
+		for (Status currentStatus: statusList)
+		{
+			String[] tweetText = currentStatus.getText().split(" ");
+			for (String word : tweetText)
+			{
+				tweetTexts.add(removePunctuation(word).toLowerCase());
+			}
+		}
+		removeCommonEnglishWords(tweetTexts);
+		removeEmptyText();
+		
+	}
+	
+	private void removeEmptyText()
+	{
+		
+	}
+	
+	private List removeCommonEnglishWords(List<String> wordList)
+	{
+		return null;
+	}
+	
+	private String removePunctuation(String currentString)
+	{
+		return null;
+	}
+	
 	public void sendTweet(String tweet) {
 		try 
 		{

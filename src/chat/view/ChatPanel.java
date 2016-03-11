@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout; //For layout
-
+import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Color;
 
@@ -13,7 +13,7 @@ import chat.controller.ChatController;
 
 /**
  * @author rbar3155
- * @version 0.1 Nov 23, 2015
+ * @version 1.0 March 11, 2016
  *
  */
 public class ChatPanel extends JPanel
@@ -23,6 +23,8 @@ public class ChatPanel extends JPanel
 	private JButton chatButton;
 	private JTextField chatTextField;
 	private JButton tweetButton;
+	private JTextArea chatArea;
+	private JButton analyzeTwitterButton;
 
 	public ChatPanel(ChatController baseController)
 	{
@@ -32,7 +34,8 @@ public class ChatPanel extends JPanel
 		chatButton = new JButton("Please do not click the button");
 		tweetButton = new JButton("Tweet button");
 		chatTextField = new JTextField("Words can be typed here");
-		
+		analyzeTwitterButton = new JButton("Analyze tweets");
+
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -45,7 +48,7 @@ public class ChatPanel extends JPanel
 		this.add(chatTextField);
 		this.add(tweetButton);
 	}
-	
+
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.WEST, chatButton, 107, SpringLayout.WEST, this);
@@ -53,7 +56,7 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.NORTH, chatTextField, 37, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, chatTextField, -24, SpringLayout.EAST, this);
 	}
-	
+
 	private void setupListeners()
 
 	{
@@ -64,7 +67,7 @@ public class ChatPanel extends JPanel
 				chatTextField.setText("Wow, this is the most amazing click event ever! WOW!");
 			}
 		});
-		
+
 		tweetButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
@@ -72,13 +75,23 @@ public class ChatPanel extends JPanel
 				baseController.sendTweet("no text to send");
 			}
 		});
+
+		analyzeTwitterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String user = chatTextField.getText();
+				String results = baseController.analyze(user);
+				chatArea.setText(results);
+			}
+
+		});
 	}
 
 	public JComponent getTextField()
 	{
 		// TODO Auto-generated method stub
 		return null;
+
 	}
-
-
 }
