@@ -2,8 +2,11 @@ package chat.model;
 
 import twitter4j.*;
 import chat.controller.ChatController;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.*;
 
 /**
  * @RachelBarnes
@@ -63,7 +66,53 @@ public class CTECTwitter
 
 	private List removeCommonEnglishWords(List<String> wordList)
 	{
-		return null;
+		String [] boringWords = importWordsToArray();
+		
+		for (int count = 0; count < wordList.size(); count++)
+		{
+			for (int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
+			{
+			
+				if (wordList.get(count).equalsIgnoreCase(boringWords[removeSpot]))
+				{
+				wordList.remove(count);
+				count --;
+				removeSpot = boringWords.length; 
+				}
+					
+			}
+		}
+		return wordList;
+	}
+	
+	
+	private String [] importWordsToArray()
+	{
+		String [] boringWords;
+		int wordCount = 0;
+		try
+		{
+			Scanner wordFile = new Scanner(new File("commonWords.txt"));
+			while (wordFile.hasNext())
+			{
+				wordCount ++;
+				wordFile.next();
+			}
+			wordFile.reset();
+			boringWords = new String[wordCount];
+			int boringWordCount = 0;
+			while (wordFile.hasNext())
+			{
+				boringWords[boringWordCount] = wordFile.next();
+				boringWordCount++;
+			}
+			wordFile.close();
+		}
+		catch (FileNotFoundException e)
+		{
+			return new String[0];
+		}
+		return boringWords;
 	}
 
 	private String removePunctuation(String currentString) //Goes through the characters and returns everything that isn't in the punctuation list.
