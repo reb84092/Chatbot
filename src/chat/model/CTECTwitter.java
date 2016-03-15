@@ -64,38 +64,49 @@ public class CTECTwitter
 		}
 	}
 
+	public String topResults(List<String> wordList)
+	{
+		String tweetResults = "";
+
+		int topWordLocation = 0;
+		int wordUseCount = 0;
+
+		tweetResults = "The top word in the tweets was " + wordList.get(topWordLocation) + " and it was used " + wordUseCount + " times!";
+		return tweetResults;
+
+	}
+
 	private List removeCommonEnglishWords(List<String> wordList)
 	{
-		String [] boringWords = importWordsToArray();
-		
+		String[] boringWords = importWordsToArray();
+
 		for (int count = 0; count < wordList.size(); count++)
 		{
 			for (int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
 			{
-			
+
 				if (wordList.get(count).equalsIgnoreCase(boringWords[removeSpot]))
 				{
-				wordList.remove(count);
-				count --;
-				removeSpot = boringWords.length; 
+					wordList.remove(count);
+					count--;
+					removeSpot = boringWords.length;
 				}
-					
+
 			}
 		}
 		return wordList;
 	}
-	
-	
-	private String [] importWordsToArray()
+
+	private String[] importWordsToArray()
 	{
-		String [] boringWords;
+		String[] boringWords;
 		int wordCount = 0;
 		try
 		{
 			Scanner wordFile = new Scanner(new File("commonWords.txt"));
 			while (wordFile.hasNext())
 			{
-				wordCount ++;
+				wordCount++;
 				wordFile.next();
 			}
 			wordFile.reset();
@@ -115,7 +126,12 @@ public class CTECTwitter
 		return boringWords;
 	}
 
-	private String removePunctuation(String currentString) //Goes through the characters and returns everything that isn't in the punctuation list.
+	private String removePunctuation(String currentString) // Goes through the
+															// characters and
+															// returns
+															// everything that
+															// isn't in the
+															// punctuation list.
 	{
 		String punctuation = ".,'?!:;\"(){}^[]<>-";
 
