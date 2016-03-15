@@ -69,9 +69,27 @@ public class CTECTwitter
 		String tweetResults = "";
 
 		int topWordLocation = 0;
-		int wordUseCount = 0;
+		int topCount = 0;
 
-		tweetResults = "The top word in the tweets was " + wordList.get(topWordLocation) + " and it was used " + wordUseCount + " times!";
+		for (int index = 0; index < wordList.size(); index++)
+		{
+			int wordUseCount = 0;
+			
+			for (int spot = index + 1; spot < wordList.size(); spot++)
+			{
+				if(wordList.get(index).equals(wordList.get(spot)))
+				{
+					topCount = wordUseCount;
+				}
+				if (wordUseCount > topCount)
+				{
+					topCount = wordUseCount;
+					topWordLocation = index;
+				}
+			}
+		}
+
+		tweetResults = "The top word in the tweets was " + wordList.get(topWordLocation) + " and it was used " + topCount + " times!";
 		return tweetResults;
 
 	}
