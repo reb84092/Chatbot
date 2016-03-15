@@ -32,10 +32,11 @@ public class ChatController
 
 	public String analyze(String userName)
 	{
-		String userAnalysis = "The Twitter user " + userName + "has....";
+		String userAnalysis = "The Twitter user " + userName + " has many tweets. " + chatTwitter.topResults();
 		
 		return userAnalysis;
 	}
+	
 	private void chat()
 	{
 		String conversation = display.collectUserText("What would you like to talk about today?");

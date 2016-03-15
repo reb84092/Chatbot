@@ -18,7 +18,7 @@ public class CTECTwitter
 	private ArrayList<Status> statusList;
 	private ArrayList<String> wordList;
 	private Twitter chatbotTwitter;
-	private ArrayList<String> tweetTexts;
+	private ArrayList<String> wordsList;
 	private ChatController baseController;
 
 	public CTECTwitter(ChatController baseController)
@@ -26,7 +26,7 @@ public class CTECTwitter
 		this.baseController = baseController;
 		statusList = new ArrayList<Status>();
 		chatbotTwitter = TwitterFactory.getSingleton();
-		tweetTexts = new ArrayList<String>();
+		wordsList = new ArrayList<String>();
 	}
 
 	public void loadTweets(String twitterHandle) throws TwitterException
@@ -44,27 +44,27 @@ public class CTECTwitter
 			String[] tweetText = currentStatus.getText().split(" ");
 			for (String word : tweetText)
 			{
-				tweetTexts.add(removePunctuation(word).toLowerCase());
+				wordsList.add(removePunctuation(word).toLowerCase());
 			}
 		}
-		removeCommonEnglishWords(tweetTexts);
+		removeCommonEnglishWords(wordsList);
 		removeEmptyText();
 
 	}
 
 	private void removeEmptyText()
 	{
-		for (int spot = 0; spot < tweetTexts.size(); spot++)
+		for (int spot = 0; spot < wordsList.size(); spot++)
 		{
-			if (tweetTexts.get(spot).equals(""))
+			if (wordsList.get(spot).equals(""))
 			{
-				tweetTexts.remove(spot);
+				wordsList.remove(spot);
 				spot--;
 			}
 		}
 	}
 
-	public String topResults(List<String> wordList)
+	public String topResults()
 	{
 		String tweetResults = "";
 
