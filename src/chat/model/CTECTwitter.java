@@ -174,4 +174,29 @@ public class CTECTwitter
 		}
 
 	}
+	
+	public String sampleInvestigation()
+	{
+		String results = "";
+		
+		Query query = new Query("marathon");
+		query.setCount(100);
+		query.setGeoCode(new GeoLocation(40.587521, -111.869178), 5, Query.MILES);
+		query.setSince("2016-1-1");
+		try
+		{
+			QueryResult result = chatbotTwitter.search(query);
+			results += "Count : " + result.getTweets().size() + "\n";
+			for (Status tweet : result.getTweets())
+			{
+				results += "@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n";
+			}
+		}
+		catch (TwitterException error)
+		{
+			error.printStackTrace();
+		}
+		
+		return results;
+	}
 }

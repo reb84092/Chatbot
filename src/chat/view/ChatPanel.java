@@ -87,7 +87,8 @@ public class ChatPanel extends JPanel
 
 		});
 	}
-
+	
+	
 	public JComponent getTextField()
 	{
 		// TODO Auto-generated method stub
