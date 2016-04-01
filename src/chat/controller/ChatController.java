@@ -28,22 +28,13 @@ public class ChatController
 	public void start()
 	{
 		display.displayText("Hello" + simpleBot.getUserName());
-		chat();
+		//chat();
 	}
 
 	public String analyze(String userName)
 	{
-		String userAnalysis = "The Twitter user " + userName + " has many tweets. ";
-		try
-		{
-			chatTwitter.loadTweets(userName);
-		}
-		catch (TwitterException error)
-		{
-			handleErrors(error.getErrorMessage());
-		}
-		userAnalysis += chatTwitter.topResults();
-		
+		String userAnalysis = "This topic " + userName + " has many tweets. ";
+		userAnalysis += chatTwitter.sampleInvestigation();
 		return userAnalysis;
 	}
 	

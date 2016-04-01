@@ -179,9 +179,9 @@ public class CTECTwitter
 	{
 		String results = "";
 		
-		Query query = new Query("marathon");
+		Query query = new Query("Magnus Chase");
 		query.setCount(100);
-		query.setGeoCode(new GeoLocation(40.587521, -111.869178), 5, Query.MILES);
+		query.setGeoCode(new GeoLocation(39.802075, -111.266371), 175, Query.MILES);
 		query.setSince("2016-1-1");
 		try
 		{
